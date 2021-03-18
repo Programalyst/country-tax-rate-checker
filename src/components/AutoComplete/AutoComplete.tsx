@@ -7,12 +7,15 @@ interface AutoCompleteProps {
 
 const AutoComplete: React.FC<AutoCompleteProps> = ( { itemsList } ) => {
 
-    const [currSelection, setCurrSelection] = useState<string>();
+    const [currSelection, setCurrSelection] = useState<string>("");
 
     const handleOnInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        // remove old list 
         closeDropdown();
-        // render new list
+        renderAutoCompleteList(event.target, itemsList);
+    }
+
+    const handleOnClick = (event: any) => {
+        closeDropdown();
         renderAutoCompleteList(event.target, itemsList);
     }
 
@@ -65,7 +68,14 @@ const AutoComplete: React.FC<AutoCompleteProps> = ( { itemsList } ) => {
     return (
         <div>
             <form className="autocomplete-form">
-                <input className="autocomplete-input" id="inputField" type="text" onChange={e => handleOnInput(e)} />
+                <input 
+                    className="autocomplete-input" 
+                    id="inputField" 
+                    type="text" 
+                    placeholder="Country"
+                    onClick={e => handleOnClick(e)} 
+                    onChange={e => handleOnInput(e)} 
+                />
             </form>
         </div>
     )
