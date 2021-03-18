@@ -1,0 +1,20 @@
+
+.autocomplete-form{
+    width: 300px;
+    margin: 15px;
+}
+
+.autocomplete-input{
+    width: inherit;
+}
+
+.autocomplete-item {
+    position: absolute;
+    color:blueviolet;
+    border: 1px solid #d4d4d4;
+    width: inherit;
+}
+
+.autocomplete-item div:hover {
+    background-color: #e9e9e9;
+  }
